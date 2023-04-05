@@ -1,6 +1,8 @@
 part of 'counter_cubit.dart';
 
 class CounterState {
-  CounterState(this.counterValue);
+  const CounterState(this.counterValue, this.dashboardData, this.loginData);
   final int counterValue;
+  final Map<String, dynamic> dashboardData;
+  final List loginData;
 }

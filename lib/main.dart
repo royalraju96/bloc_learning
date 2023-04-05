@@ -1,8 +1,7 @@
 import 'package:bloc_learning/counter/cubit/counter_cubit.dart';
+import 'package:bloc_learning/login/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'counter/screens/counter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider<CounterCubit>(
         create: (context) => CounterCubit(),
-        child: const MyHomePage(title: 'Flutter Demo Home Page'),
+        child: const Login(),
       ),
     );
   }

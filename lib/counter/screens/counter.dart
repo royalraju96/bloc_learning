@@ -25,11 +25,12 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterCubit, CounterState>(
-                builder: (_, state) => Text(
-                      '${state.counterValue}',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    )),
+            BlocBuilder<CounterCubit, CounterState>(builder: (_, state) {
+              return Text(
+                '${state.counterValue}',
+                style: Theme.of(context).textTheme.headlineMedium,
+              );
+            }),
           ],
         ),
       ),
