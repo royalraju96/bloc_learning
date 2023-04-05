@@ -11,7 +11,11 @@ class LoginField extends StatelessWidget {
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-            border: const OutlineInputBorder(), label: Text(label)),
+            fillColor: Colors.white,
+            filled: true,
+            border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            label: Text(label)),
       ),
     );
   }

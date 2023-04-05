@@ -31,31 +31,43 @@ class _LoginState extends State<Login> {
           }
         },
         child: SafeArea(
-          child: Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 20.0),
-                child: Text(
-                  'Login',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.blue[100],
+                borderRadius:
+                    const BorderRadius.only(topLeft: Radius.circular(100))),
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-              LoginField(
-                controller: email,
-                label: 'Email*',
-              ),
-              const SizedBox(height: 20),
-              LoginField(
-                controller: pass,
-                label: 'Password*',
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    context.read<CounterCubit>().login(email.text, pass.text);
-                  },
-                  child: const Text('Login'))
-            ],
+                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                Column(
+                  children: [
+                    LoginField(
+                      controller: email,
+                      label: 'Email*',
+                    ),
+                    const SizedBox(height: 20),
+                    LoginField(
+                      controller: pass,
+                      label: 'Password*',
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          context
+                              .read<CounterCubit>()
+                              .login(email.text, pass.text);
+                        },
+                        child: const Text('Login')),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
