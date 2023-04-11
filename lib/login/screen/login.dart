@@ -1,7 +1,9 @@
-import 'package:bloc_learning/counter/cubit/counter_cubit.dart';
 import 'package:bloc_learning/login/components/login_field.dart';
+import 'package:bloc_learning/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,7 +18,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<CounterCubit, CounterState>(
+      body: BlocListener<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state.loginData.isEmpty) {
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -24,10 +26,17 @@ class _LoginState extends State<Login> {
               backgroundColor: Colors.red,
             ));
           } else {
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-              content: Text('Login Success'),
-              backgroundColor: Colors.green,
-            ));
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Login Success'),
+                backgroundColor: Colors.green,
+              ),
+            );
+
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (_) => const Home()),
+                (route) => false);
           }
         },
         child: SafeArea(
@@ -60,8 +69,8 @@ class _LoginState extends State<Login> {
                     ElevatedButton(
                         onPressed: () {
                           context
-                              .read<CounterCubit>()
-                              .login(email.text, pass.text);
+                              .read<LoginCubit>()
+                              .login('HPMILKFED', 'HPMILKFED');
                         },
                         child: const Text('Login')),
                   ],

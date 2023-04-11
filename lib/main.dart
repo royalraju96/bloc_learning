@@ -1,4 +1,4 @@
-import 'package:bloc_learning/counter/cubit/counter_cubit.dart';
+import 'package:bloc_learning/login/cubit/login_cubit.dart';
 import 'package:bloc_learning/login/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<CounterCubit>(
-        create: (context) => CounterCubit(),
+      home: BlocProvider<LoginCubit>(
+        create: (context) => LoginCubit(),
         child: const Login(),
       ),
     );
